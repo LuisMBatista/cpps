@@ -6,7 +6,7 @@
 #    By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/11 18:29:19 by lumiguel          #+#    #+#              #
-#    Updated: 2025/06/11 18:34:53 by lumiguel         ###   ########.fr        #
+#    Updated: 2025/06/26 14:59:10 by lumiguel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ NAME = Phonebook
 FLAGS = -Wall -Wextra -Werror -std=c++98
 CC = g++
 
-SRC = Phonebook.cpp
+SRC = Phonebook.cpp \
+	  Contacts.cpp
+
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

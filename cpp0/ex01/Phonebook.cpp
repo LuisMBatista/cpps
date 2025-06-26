@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/12 10:47:33 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/06/20 12:12:30 by lumiguel         ###   ########.fr       */
+/*   Created: 2025/06/26 14:55:29 by lumiguel          #+#    #+#             */
+/*   Updated: 2025/06/26 16:55:28 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,43 +15,62 @@
 #include <string>
 #include <iostream>
 
-int main() {
-	Phonebook phonebook;
-	int choice;
-	std::string firstName, lastName, nickname;
 
-	while (true) {
-		phonebook.displayMenu();
-		std::cout << "Enter your choice: ";
-		std::cin >> choice;
-
-		switch (choice) {
-			case 1:
-				std::cout << "Enter First Name: ";
-				std::cin >> firstName;
-				std::cout << "Enter Last Name: ";
-				std::cin >> lastName;
-				std::cout << "Enter Nickname: ";
-				std::cin >> nickname;
-				phonebook.addContact(firstName, lastName, nickname);
-				break;
-			case 2:
-				phonebook.displayContacts();
-				break;
-			case 3:
-				int index;
-				std::cout << "Enter contact index to search: ";
-				std::cin >> index;
-				phonebook.searchContact(index);
-				break;
-			case 4:
-				phonebook.clearContacts();
-				break;
-			case 5:
-				return 0;
-			default:
-				std::cout << "Invalid choice. Please try again.\n";
-		}
+Phonebook::Phonebook() : _index(0), _size(0) {
+	for (int i = 0; i < 3; ++i) {
+		_contacts[i] = NULL;
 	}
 }
+Phonebook::~Phonebook() {
+	for (int i = 0; i < _size; ++i) {
+		delete _contacts[i];
+	}
+}
+void Phonebook::displayMenu() const {
+	std::cout << "Phonebook Menu:\n";
+	std::cout << "1. Add Contact\n";
+	std::cout << "2. Display Contacts\n";
+	std::cout << "3. Search Contact\n";
+	std::cout << "4. Clear Contacts\n";
+	std::cout << "5. Exit\n";
+}
 
+void Phonebook::addContact(const std::string &firstName, const std::string &lastName, const std::string &nickname) {
+		_contacts[_index] = new Contact(firstName, lastName, nickname);
+		_index = (_index + 1) % 3; //dar a volta ao índice
+		_size++;
+}
+
+void Phonebook::displayContacts() const {
+	if (_size == 0) {
+		std::cout << "No contacts available.\n";
+		return;
+	}
+	for (int i = 0; i < _size; ++i) {
+		std::cout << "Contact " << i + 1 << ": "
+		          << _contacts[i]->getFirstName() << " "
+		          << _contacts[i]->getLastName() << " ("
+		          << _contacts[i]->getNickname() << ")\n";
+	}
+}
+void Phonebook::clearContacts() {
+	for (int i = 0; i < _size; ++i) {
+		delete _contacts[i];
+		_contacts[i] = NULL;
+	}
+	_index = 0;
+	_size = 0;
+	std::cout << "All contacts cleared.\n";
+}
+
+void Phonebook::searchContact(int index) const {
+	if (index < 1 || index > _size) {
+		std::cout << "Invalid contact index.\n";
+		return;
+	}
+	const Contact *contact = _contacts[index - 1];
+	std::cout << "Contact " << index << ": "
+	          << contact->getFirstName() << " "
+	          << contact->getLastName() << " ("
+	          << contact->getNickname() << ")\n";
+}
