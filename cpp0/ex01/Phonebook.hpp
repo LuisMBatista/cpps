@@ -6,7 +6,7 @@
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 10:47:47 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/06/26 16:49:28 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/06/27 15:09:28 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 	void searchContact(int index) const;
 	void clearContacts();
 private:
-	Contact *_contacts[3]; // Array of pointers to Contact objects
+	Contact _contacts[3]; // Array to Contact objects
 	int _index;            // Current index for adding new contacts
 	int _size;             // Current number of contacts in the phonebook
 };

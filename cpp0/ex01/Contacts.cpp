@@ -6,7 +6,7 @@
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 10:47:33 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/06/26 15:01:51 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/06/27 15:16:58 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 
 
+Contact::Contact() : _firstName(""), _lastName(""), _nickname("") {}
 Contact::Contact(const std::string &firstName, const std::string &lastName, const std::string &nickname)
 	: _firstName(firstName), _lastName(lastName), _nickname(nickname) {}
 
