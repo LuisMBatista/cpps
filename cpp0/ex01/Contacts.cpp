@@ -6,7 +6,7 @@
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 10:47:33 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/06/27 15:16:58 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/07/03 16:20:21 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 #include <iostream>
 
 
-Contact::Contact() : _firstName(""), _lastName(""), _nickname("") {}
-Contact::Contact(const std::string &firstName, const std::string &lastName, const std::string &nickname)
-	: _firstName(firstName), _lastName(lastName), _nickname(nickname) {}
+Contact::Contact() : _firstName(""), _lastName(""), _nickname(""), _phonenumber(""), _secret(""){}
+Contact::Contact(const std::string &firstName, const std::string &lastName, const std::string &nickname, const std::string &phonenumber, const std::string &secret)
+	: _firstName(firstName), _lastName(lastName), _nickname(nickname), _phonenumber(phonenumber), _secret(secret) {}
 
 Contact::~Contact() {}
 
@@ -34,10 +34,16 @@ const std::string &Contact::getNickname() const {
 	return _nickname;
 }
 
+const std::string &Contact::getPhoneNumber() const {
+	return _phonenumber;
+}
+const std::string &Contact::getSecret() const {
+	return _secret;
+}
 int main() {
 	Phonebook phonebook;
 	int choice;
-	std::string firstName, lastName, nickname;
+	std::string firstName, lastName, nickname, phonenumber, secret;
 
 	while (true) {
 		phonebook.displayMenu();
@@ -52,21 +58,21 @@ int main() {
 				std::cin >> lastName;
 				std::cout << "Enter Nickname: ";
 				std::cin >> nickname;
-				phonebook.addContact(firstName, lastName, nickname);
+				std::cout << "Enter Phone Number: ";
+				std::cin >> phonenumber;
+				std::cout << "Enter Secret: ";
+				std::cin >> secret;
+				phonebook.addContact(firstName, lastName, nickname, phonenumber, secret);
 				break;
 			case 2:
-				phonebook.displayContacts();
-				break;
-			case 3:
+				if (!phonebook.displayContacts())
+					break;
 				int index;
 				std::cout << "Enter contact index to search: ";
 				std::cin >> index;
 				phonebook.searchContact(index);
 				break;
-			case 4:
-				phonebook.clearContacts();
-				break;
-			case 5:
+			case 3:
 				return 0;
 			default:
 				std::cout << "Invalid choice. Please try again.\n";
