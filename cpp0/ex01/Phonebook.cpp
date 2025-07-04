@@ -6,7 +6,7 @@
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:55:29 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/07/03 16:18:42 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/07/03 21:29:50 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,8 @@ void Phonebook::searchContact(int index) const {
 	std::cout << "Contact " << index << ": "
 	          << contact.getFirstName() << " "
 	          << contact.getLastName() << " ("
-	          << contact.getNickname() << ")\n";
+	          << contact.getNickname() << ")"
+			  << contact.getPhoneNumber() << " "
+			  << contact.getSecret() << "\n";
 }
+

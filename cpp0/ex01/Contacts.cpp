@@ -6,7 +6,7 @@
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 10:47:33 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/07/03 16:20:21 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/07/03 21:37:37 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,37 @@ int main() {
 
 		switch (choice) {
 			case 1:
+				{
+				std::string firstName, lastName, nickname, phonenumber, secret;
+
+				std::cin.ignore();
 				std::cout << "Enter First Name: ";
-				std::cin >> firstName;
+				std::getline(std::cin, firstName);
+
 				std::cout << "Enter Last Name: ";
-				std::cin >> lastName;
+				std::getline(std::cin, lastName);
+
 				std::cout << "Enter Nickname: ";
-				std::cin >> nickname;
+				std::getline(std::cin, nickname);
+
 				std::cout << "Enter Phone Number: ";
-				std::cin >> phonenumber;
+				std::getline(std::cin, phonenumber);
+
 				std::cout << "Enter Secret: ";
-				std::cin >> secret;
-				phonebook.addContact(firstName, lastName, nickname, phonenumber, secret);
+				std::getline(std::cin, secret);
+
+				if (firstName.empty() || lastName.empty() || nickname.empty() ||
+					phonenumber.empty() || secret.empty())
+				{
+					std::cout << "Error: All fields must be filled. Contact not added." << std::endl;
+				}
+				else
+				{
+					phonebook.addContact(firstName, lastName, nickname, phonenumber, secret);
+				}
+
 				break;
+}
 			case 2:
 				if (!phonebook.displayContacts())
 					break;
