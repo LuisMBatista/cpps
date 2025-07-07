@@ -6,7 +6,7 @@
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:55:29 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/07/03 21:29:50 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/07/07 15:54:45 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 #include "Contact.hpp"
 #include <string>
 #include <iostream>
+#include <cstdlib>
 
+volatile sig_atomic_t g_exitFlag = 0;
 
 Phonebook::Phonebook() : _index(0), _size(0) {
 }
@@ -42,10 +44,10 @@ bool Phonebook::displayContacts() const {
 		return false;
 	}
 	for (int i = 0; i < _size; ++i) {
-		std::cout << "Contact " << i + 1 << ": "
-		          << _contacts[i].getFirstName() << " "
-		          << _contacts[i].getLastName() << " ("
-		          << _contacts[i].getNickname() << ")\n";
+		std::cout << i + 1 << ": ";
+		std::cout << wordFitting(_contacts[i].getFirstName()) + "|";
+		std::cout << wordFitting(_contacts[i].getLastName()) + "|";
+		std::cout << wordFitting(_contacts[i].getNickname()) + "|\n";
 	}
 	return true;
 }
@@ -56,11 +58,29 @@ void Phonebook::searchContact(int index) const {
 		return;
 	}
 	const Contact contact = _contacts[index - 1];
-	std::cout << "Contact " << index << ": "
-	          << contact.getFirstName() << " "
-	          << contact.getLastName() << " ("
-	          << contact.getNickname() << ")"
-			  << contact.getPhoneNumber() << " "
-			  << contact.getSecret() << "\n";
+	std::cout << index << ": ";
+		std::cout << wordFitting(contact.getFirstName()) + "|";
+		std::cout << wordFitting(contact.getLastName()) + "|";
+		std::cout << wordFitting(contact.getNickname()) + "|";
+		std::cout << wordFitting(contact.getPhoneNumber()) + "|";
+		std::cout << wordFitting(contact.getSecret()) + "|\n";
 }
 
+std::string    wordFitting(std::string fullWord)
+{
+    std::string space = "          ";
+    std::string fittedName = fullWord.substr(0, 10);
+    if (fullWord.length() > 10)
+        fittedName[9] = '.';
+    int len = fittedName.length();
+    for (int i = 0; i < len; i++)
+        space[10 - len + i] = fittedName[i];
+    return (space);
+}
+void signalHandler(int signum)
+{
+	g_exitFlag = 1;
+	std::cin.clear();
+    std::cout << "\nExiting\n";
+    exit(signum);
+}

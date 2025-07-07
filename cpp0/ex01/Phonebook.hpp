@@ -6,7 +6,7 @@
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 10:47:47 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/07/03 16:18:02 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/07/07 15:54:12 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include "Contact.hpp"
 #include <string>
 #include <iostream>
+#include <csignal>
+#include <cstdlib>
 
 class Phonebook {
 public:
@@ -32,5 +34,9 @@ private:
 	int _index;            // Current index for adding new contacts
 	int _size;             // Current number of contacts in the phonebook
 };
+
+std::string    wordFitting(std::string fullWord);
+
+void signalHandler(int signum);
 
 #endif // PHONEBOOK_HPP

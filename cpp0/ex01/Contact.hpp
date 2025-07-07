@@ -6,7 +6,7 @@
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 12:02:52 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/07/03 11:24:29 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/07/07 15:29:51 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #define CONTACT_HPP	
 #include <string>
 #include <iostream>
+#include <csignal>
+#include <cstdlib>
 
 class Contact {
 public:
