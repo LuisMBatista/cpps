@@ -6,7 +6,7 @@
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 10:47:33 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/07/07 17:08:42 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/07/09 09:25:18 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,11 @@ int main()
 					HandleEof(0);
 					break;	
 				}
-
+				if (phonenumber.find_first_not_of("0123456789+*#") != std::string::npos)
+				{
+					std::cout << "Invalid phone number.\n";
+					break;
+				}
 				std::cout << "Enter Secret: ";
 				if (!std::getline(std::cin, secret))
 				{

@@ -6,7 +6,7 @@
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 10:47:47 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/07/07 15:54:12 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/07/09 09:10:12 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ public:
 	bool displayContacts() const;
 	void searchContact(int index) const;
 private:
-	Contact _contacts[3]; // Array to Contact objects
-	int _index;            // Current index for adding new contacts
-	int _size;             // Current number of contacts in the phonebook
+	Contact _contacts[3];
+	int _index;
+	int _size;
 };
 
 std::string    wordFitting(std::string fullWord);
