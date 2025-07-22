@@ -6,13 +6,13 @@
 #    By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/09 09:28:54 by lumiguel          #+#    #+#              #
-#    Updated: 2025/07/09 13:56:16 by lumiguel         ###   ########.fr        #
+#    Updated: 2025/07/22 12:20:54 by lumiguel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Zombie
-FLAGS = -Wall -Wextra -Werror -std=c++98
-CC = g++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = g++
 
 SRC = main.cpp \
 	  Zombie.cpp \
@@ -23,10 +23,10 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.cpp
-	@$(CC) $(FLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	@rm -f $(OBJ) $(NAME)
