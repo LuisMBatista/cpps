@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sed.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 15:01:47 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/07/24 17:25:06 by lumiguel         ###   ########.fr       */
+/*   Created: 2025/07/24 17:21:47 by lumiguel          #+#    #+#             */
+/*   Updated: 2025/07/29 13:47:54 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Harl.hpp"
 
-#ifndef SED_HPP
-#define SED_HPP
-
-#include <iostream>
-#include <fstream>
-#include <string>
-
-std::string ft_suber(std::string line, std::string l1, std::string l2);
-
-#endif
+int main(void)
+{
+	Harl harl;
+	harl.complain("DEBUG");
+	harl.complain("INFO");
+	harl.complain("WARNING");
+	harl.complain("ERROR");
+	harl.complain("QUACK");
+	
+}

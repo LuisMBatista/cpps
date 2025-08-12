@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sed.hpp                                            :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 15:01:47 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/07/24 17:25:06 by lumiguel         ###   ########.fr       */
+/*   Created: 2025/08/11 16:38:43 by lumiguel          #+#    #+#             */
+/*   Updated: 2025/08/12 11:42:29 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef SED_HPP
-#define SED_HPP
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
 #include <iostream>
-#include <fstream>
-#include <string>
+#include "ClapTrap.hpp"
 
-std::string ft_suber(std::string line, std::string l1, std::string l2);
+class FragTrap : public ClapTrap
+{
+	public:
+		FragTrap(const std::string& name);
+		~FragTrap();
+		void highFivesGuys(void);
+};
 
 #endif

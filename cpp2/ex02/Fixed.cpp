@@ -6,7 +6,7 @@
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:38:22 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/08/07 19:28:47 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/08/08 16:17:26 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,27 @@ Fixed Fixed::operator-(const Fixed& other) const {
 	return result;
 }
 
+Fixed& Fixed::operator++(){
+	++fixed_point;
+	return *this;
+}
+
+Fixed Fixed::operator++(int){
+	Fixed tmp = *this;
+	++fixed_point;
+	return tmp;
+}
+
+Fixed& Fixed::operator--(){
+	--fixed_point;
+	return *this;
+}
+
+Fixed Fixed::operator--(int){
+	Fixed tmp = *this;
+	--fixed_point;
+	return tmp;
+}
 // regular functions
 float Fixed::toFloat() const {
 	return static_cast<float>(this->fixed_point) / (1<< static_point);

@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sed.hpp                                            :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 15:01:47 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/07/24 17:25:06 by lumiguel         ###   ########.fr       */
+/*   Created: 2025/07/29 17:40:35 by lumiguel          #+#    #+#             */
+/*   Updated: 2025/08/12 10:19:31 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef SED_HPP
-#define SED_HPP
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
 #include <iostream>
-#include <fstream>
-#include <string>
 
-std::string ft_suber(std::string line, std::string l1, std::string l2);
+class ClapTrap
+{
+	protected:
+		const std::string Name;
+		int HitPoints;
+		int EnergyPoints;
+		int AttackDamage;
+	public:
+		ClapTrap(const std::string& name, int hp = 10, int ep = 10, int ad = 10);
+		~ClapTrap();
+		void attack(const std::string& target);
+		void takeDamage( int amount);
+		void beRepaired( int amount);
+};
 
 #endif

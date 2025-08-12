@@ -5,35 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 15:03:42 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/07/24 17:08:38 by lumiguel         ###   ########.fr       */
+/*   Created: 2025/07/29 17:28:26 by lumiguel          #+#    #+#             */
+/*   Updated: 2025/08/07 13:36:27 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sed.hpp"
-#include <fstream>
+#include "Fixed.hpp"
 
-int main(int ac, char** av)
-{
-	if(ac != 4){
-		std::cout << "Invalid number of arguments" << std::endl;
-		return(1);
-	}
-	std::ifstream file(av[1]);
-	std::ofstream outfile("output.txt");
-
-	if(!outfile){
-		std::cerr << "Error opening output file" << std::endl;
-		return(1);
-	}
-	std::string line;
-	std::string outp;
-	while(std::getline(file, line))
-	{ 
-		outp = ft_suber(line, av[2], av[3]);
-		outfile << outp << std::endl;
-	}
-	file.close();
-	outfile.close();
-	return 0;
+int main( void ) {
+Fixed a;
+Fixed const b( 10 );
+Fixed const c( 42.42f );
+Fixed const d( b );
+a = Fixed( 1234.4321f );
+std::cout << "a is " << a << std::endl;
+std::cout << "b is " << b << std::endl;
+std::cout << "c is " << c << std::endl;
+std::cout << "d is " << d << std::endl;
+std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+return 0;
 }
