@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   wrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 11:01:32 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/08/18 19:37:01 by lumiguel         ###   ########.fr       */
+/*   Created: 2025/08/12 14:17:20 by lumiguel          #+#    #+#             */
+/*   Updated: 2025/08/13 11:55:54 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "wrongCat.hpp"
 
-Zombie* zombieHorde(int N, std::string name) {
-	Zombie* horde = new Zombie[N];
-	for (int i = 0; i < N; ++i) {
-		horde[i].setName(name);
-	}
-	return horde;
+wrongCat::wrongCat() {
+	type = "wrongCat";
+	std::cout << "wrongCat created with type: " << type << std::endl;
 }
 
-void announceHorde(Zombie* horde, int N) 
-{
-	for (int i = 0; i < N; ++i) {
-		horde[i].announce();
-	}
+wrongCat::~wrongCat() {
+	std::cout << "wrongCat destroyed with type: " << type << std::endl;
+}
+
+void wrongCat::makeSound() const {
+	std::cout << "Meow! Meow!" << std::endl;
 }

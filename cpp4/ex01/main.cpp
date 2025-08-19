@@ -5,23 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 10:04:47 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/08/19 09:55:09 by lumiguel         ###   ########.fr       */
+/*   Created: 2025/08/12 14:17:26 by lumiguel          #+#    #+#             */
+/*   Updated: 2025/08/13 12:12:35 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "animal.hpp"
+#include "dog.hpp"
+#include "cat.hpp"
+#include "wrongAnimal.hpp"
+#include "wrongCat.hpp"
 
+int main()
+{
+const Animal* meta = new Animal();
+const Animal* j = new Dog();
+const Animal* i = new Cat();
+std::cout << j->getType() << " " << std::endl;
+std::cout << i->getType() << " " << std::endl;
+i->makeSound();
+j->makeSound();
+meta->makeSound();
 
-int main() {
-	Zombie zombie("Clara");
-	zombie.announce();
-	
-	
-	Zombie* Antonia = zombie.newZombie("Antonia");
-	Antonia->announce();
-	
-	Zombie randomChump("RandomZombie");
-	delete Antonia; // Apagar na avaliação para mostrar que o destrutor é chamado
-	return 0;
+const wrongAnimal *wrongMeta = new wrongAnimal();
+const wrongAnimal *wrongC = new wrongCat();
+
+wrongC->makeSound();
+wrongMeta->makeSound();
+return 0;
 }

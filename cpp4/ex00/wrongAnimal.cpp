@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   wrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 11:01:32 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/08/18 19:37:01 by lumiguel         ###   ########.fr       */
+/*   Created: 2025/08/12 14:17:18 by lumiguel          #+#    #+#             */
+/*   Updated: 2025/08/13 11:55:35 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "wrongAnimal.hpp"
 
-Zombie* zombieHorde(int N, std::string name) {
-	Zombie* horde = new Zombie[N];
-	for (int i = 0; i < N; ++i) {
-		horde[i].setName(name);
-	}
-	return horde;
+wrongAnimal::wrongAnimal() : type("Unknown") {
+	std::cout << "wrongDefault constructor called " << std::endl;
 }
 
-void announceHorde(Zombie* horde, int N) 
-{
-	for (int i = 0; i < N; ++i) {
-		horde[i].announce();
-	}
+wrongAnimal::~wrongAnimal() {
+	std::cout << "wrongAnimal destroyed with type: " << type << std::endl;
 }
+
+void wrongAnimal::makeSound() const {
+	std::cout << "wrongAnimal makes a sound!" << std::endl;
+}
+
+std::string wrongAnimal::getType() const {
+	return type;
+}
+

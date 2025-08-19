@@ -6,7 +6,7 @@
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 10:00:48 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/07/09 13:45:44 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/08/18 19:34:05 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,8 @@ void Zombie::announce(void) {
 
 Zombie* Zombie::newZombie(std::string name) {
 	return new Zombie(name);
+}
+
+void Zombie::setName(std::string name) {
+	_name = name;
 }

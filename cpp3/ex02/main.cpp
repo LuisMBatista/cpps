@@ -6,7 +6,7 @@
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 17:28:26 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/08/12 11:37:26 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/08/12 11:44:23 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main()
     s1.beRepaired(10);
     s1.guardGate();
 
-        std::cout << "\n=== Testing FragTrap actions ===" << std::endl;
+    std::cout << "\n=== Testing FragTrap actions ===" << std::endl;
     y1.attack("718");
     y1.takeDamage(20);
     y1.beRepaired(10);

@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   wrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 11:01:32 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/08/18 19:37:01 by lumiguel         ###   ########.fr       */
+/*   Created: 2025/08/12 14:17:30 by lumiguel          #+#    #+#             */
+/*   Updated: 2025/08/13 11:56:04 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
 
-Zombie* zombieHorde(int N, std::string name) {
-	Zombie* horde = new Zombie[N];
-	for (int i = 0; i < N; ++i) {
-		horde[i].setName(name);
-	}
-	return horde;
-}
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-void announceHorde(Zombie* horde, int N) 
+#include "wrongAnimal.hpp"
+
+class wrongCat : public wrongAnimal
 {
-	for (int i = 0; i < N; ++i) {
-		horde[i].announce();
-	}
-}
+	public:
+		wrongCat();
+		~wrongCat();
+		void makeSound() const ;
+};
+#endif

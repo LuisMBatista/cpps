@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 11:01:32 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/08/18 19:37:01 by lumiguel         ###   ########.fr       */
+/*   Created: 2025/08/12 14:17:24 by lumiguel          #+#    #+#             */
+/*   Updated: 2025/08/12 17:24:35 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "animal.hpp"
+#include "dog.hpp"
 
-Zombie* zombieHorde(int N, std::string name) {
-	Zombie* horde = new Zombie[N];
-	for (int i = 0; i < N; ++i) {
-		horde[i].setName(name);
-	}
-	return horde;
+Dog::Dog() {
+	type = "Dog";
+	std::cout << "Dog created with type: " << type << std::endl;
 }
 
-void announceHorde(Zombie* horde, int N) 
-{
-	for (int i = 0; i < N; ++i) {
-		horde[i].announce();
-	}
+Dog::~Dog() {
+	std::cout << "Dog destroyed with type: " << type << std::endl;
+}
+
+void Dog::makeSound() const {
+	std::cout << "Woof! Woof!" << std::endl;
 }

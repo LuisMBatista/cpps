@@ -6,7 +6,7 @@
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 15:03:42 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/07/24 17:08:38 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/08/19 11:23:15 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ int main(int ac, char** av)
 		return(1);
 	}
 	std::ifstream file(av[1]);
+
+	if(!file){
+		std::cerr << "Error opening input file" << std::endl;
+		return(1);
+	}
+	
 	std::ofstream outfile("output.txt");
 
 	if(!outfile){

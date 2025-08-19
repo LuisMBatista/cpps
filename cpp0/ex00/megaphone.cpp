@@ -6,7 +6,7 @@
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 14:50:09 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/07/15 10:45:18 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/08/19 11:19:25 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(int ac, char **av)
 	{
 		for (int j = 0; av[i][j]; ++j)
 			av[i][j] = toupper(av[i][j]);
-		std::cout << av[i] << " ";
+		std::cout << av[i];
 	}
 	std::cout << std::endl;
 	return 0;
