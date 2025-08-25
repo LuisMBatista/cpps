@@ -6,7 +6,7 @@
 /*   By: lumiguel <lumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 17:40:35 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/08/25 12:23:59 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/08/25 13:27:28 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class ClapTrap
 {
 	protected:
-		const std::string Name;
+		std::string Name;
 		int HitPoints;
 		int EnergyPoints;
 		int AttackDamage;

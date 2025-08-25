@@ -6,7 +6,7 @@
 /*   By: lumiguel <lumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 16:38:48 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/08/25 12:26:10 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/08/25 13:24:46 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,18 @@ void ScavTrap::attack(const std::string& target){
 	return;
 }
 
-ScavTrap::ScavTrap( const ScavTrap &other){
+ScavTrap::ScavTrap( const ScavTrap &other): ClapTrap(other){
 	std::cout << "ScavTrap copy constructor called" << std::endl;
 	*this = other;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if(this != &other)
-		*this = other;
+	if(this != &other){
+		this->Name = other.Name;
+		this->HitPoints = other.HitPoints;
+		this->EnergyPoints = other.EnergyPoints;
+		this->AttackDamage = other.AttackDamage;
+	}
 	return *this;
 }
