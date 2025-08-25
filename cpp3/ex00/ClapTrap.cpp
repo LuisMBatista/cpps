@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: lumiguel <lumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:38:22 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/08/11 13:48:45 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/08/25 12:23:04 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,18 @@ ClapTrap::~ClapTrap(){
 	std::cout << "ClapTrap " << Name << " has retired(destructor called)" << std::endl;
 }
 
-ClapTrap::ClapTrap(const std::string Name) : Name(Name), HitPoints(10), EnergyPoints(10), AttackDamage(10) {
-	std::cout << "ClapTrap " << Name << " has been summoned (cuctor called)" << std::endl;
+ClapTrap::ClapTrap(const std::string Name) : Name(Name), HitPoints(10), EnergyPoints(10), AttackDamage(0) {
+	std::cout << "ClapTrap " << Name << " has been summoned (constructor called)" << std::endl;
+}
+
+ClapTrap::ClapTrap( const ClapTrap &other){
+	std::cout << "ClapTrap copy constructor called" << std::endl;
+	*this = other;
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
+	std::cout << "Copy assignment operator called" << std::endl;
+	if(this != &other)
+		*this = other;
+	return *this;
 }

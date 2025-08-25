@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: lumiguel <lumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 17:40:35 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/08/12 10:19:31 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/08/25 12:23:51 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ class ClapTrap
 	public:
 		ClapTrap(const std::string& name, int hp = 10, int ep = 10, int ad = 10);
 		~ClapTrap();
+		ClapTrap( const ClapTrap& other);
+		ClapTrap& operator=(const ClapTrap& other);
 		void attack(const std::string& target);
 		void takeDamage( int amount);
 		void beRepaired( int amount);

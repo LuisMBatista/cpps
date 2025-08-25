@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: lumiguel <lumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 16:38:48 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/08/12 11:42:42 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/08/25 12:26:50 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,15 @@ void FragTrap::highFivesGuys()
 		return;
 	}
     std::cout << "FragTrap " << Name << " is now in requesting high fives" << std::endl;
+}
+FragTrap::FragTrap( const FragTrap&other){
+	std::cout << "FragTrap copy constructor called" << std::endl;
+	*this = other;
+}
+
+FragTrap& FragTrap::operator=(const FragTrap& other) {
+	std::cout << "Copy assignment operator called" << std::endl;
+	if(this != &other)
+		*this = other;
+	return *this;
 }

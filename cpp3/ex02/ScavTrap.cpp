@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: lumiguel <lumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 16:38:48 by lumiguel          #+#    #+#             */
-/*   Updated: 2025/08/12 11:42:37 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/08/25 12:31:19 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,14 @@ void ScavTrap::guardGate()
     std::cout << "ScavTrap " << Name << " is now in Gate Keeper mode!" << std::endl;
 }
 
+ScavTrap::ScavTrap( const ScavTrap &other){
+	std::cout << "ScavTrap copy constructor called" << std::endl;
+	*this = other;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
+	std::cout << "Copy assignment operator called" << std::endl;
+	if(this != &other)
+		*this = other;
+	return *this;
+}
